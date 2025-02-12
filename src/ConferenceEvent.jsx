@@ -52,11 +52,7 @@ const ConferenceEvent = () => {
       }
   };
 
-  const totalCosts = {
-    venue: venueTotalCost,
-    av: avTotalCost,
-    meals: mealsTotalCost,
-};
+ 
 const getItemsFromTotalCost = () => {
   const items = [];
   venueItems.forEach((item) => {
@@ -104,11 +100,9 @@ const getItemsFromTotalCost = () => {
                           <tr key={index}>
                               <td>{item.name}</td>
                               <td>${item.cost}</td>
-                              <td>
-                                  {item.type === "meals" || item.numberOfPeople
-                                  ? ` For ${numberOfPeople} people`
-                                  : item.quantity}
-                              </td>
+                              <td>{item.type === "meals" || item.numberOfPeople ? ` For ${numberOfPeople} people` : item.quantity}</td>
+
+
                               <td>{item.type === "meals" || item.numberOfPeople
                                   ? `${item.cost * numberOfPeople}`
                                   : `${item.cost * item.quantity}`}
@@ -155,6 +149,11 @@ const getItemsFromTotalCost = () => {
           }
         }
       }
+      const totalCosts = {
+        venue: venueTotalCost,
+        av: avTotalCost,
+        meals: mealsTotalCost,
+    };
 
     return (
         <>
@@ -313,7 +312,7 @@ const getItemsFromTotalCost = () => {
                         </div>
                     ) : (
                         <div className="total_amount_detail">
-                            <TotalCost totalCosts={totalCosts} handleClick={handleToggleItems} ItemsDisplay={() => <ItemsDisplay items={items} />} />
+                            <TotalCost totalCosts={totalCosts} handleClick={handleToggleItems} ItemsDisplay={() => <ItemsDisplay items={ items } />} />
                         </div>
                     )
                 }
