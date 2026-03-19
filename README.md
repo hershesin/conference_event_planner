@@ -23,3 +23,5 @@ npm run dev
 ✅ Venue & Add-ons Selection  
 ✅ Dynamic Cost Calculation  
 ✅ State Management with Redux  
+
+![Art and test](../conference_event_planner/public/)
